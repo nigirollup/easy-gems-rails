@@ -1,0 +1,67 @@
+<div class="first-content">
+  INSTALLER FACILEMENT ET RAPIDEMENT <br>LES GEMS POUR VOS PROJETS RUBY ON RAILS
+</div>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12 side-bar">
+            <h2>Easy Gems
+            </h2>
+            <p>Installer facilement et rapidement les Gems pour vos projets Ruby on Rails</p>
+            <div class="section"></div>
+          </div>
+          <% @articles.each do |article| %>
+            <%= link_to article_path(article) do %>
+              <div class="col-md-12">
+                <div class="card-side">
+                  <%= cl_image_tag article.picture.path %>
+                  <div class="title">
+                    <h3><%= article.title %></h3>
+                    <p class="time"><%= article.created_at %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <% @articles.each do |article| %>
+            <%= link_to article_path(article) do %>
+              <div class="col-md-12">
+                <div class="posts">
+                  <h3><%= article.title %></h3>
+                  <p class="time"><%= article.created_at %></p>
+                  <%= cl_image_tag article.picture.path %>
+                </div>
+                <div class="section-2"></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <% @articles.each do |article| %>
+            <div class="col-md-12 article">
+              <div class="row">
+                <div class="col-md-8 left-content">
+                  <h2><%= article.title %></h2>
+                  <p><%= article.preface %></p>
+                </div>
+                <div class="col-md-4 right-content">
+                  <h2> <%= article.created_at %></h2>
+                </div>
+                <div class="col-md-12 img-article">
+                  <%= cl_image_tag article.picture.path %>
+                  <br><br />
+                  <p><%= article.description[0..110] %></p>
+                  <%= link_to 'Continuer', article_path(article), class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
